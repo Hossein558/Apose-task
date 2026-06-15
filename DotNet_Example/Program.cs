@@ -9,7 +9,9 @@ namespace DotNet_Example
             Console.WriteLine("Testing Aspose.Total for .NET Licenses");
             Console.WriteLine("--------------------------------------");
 
-            string licenseFile = "lib\\Aspose.Total.NET.lic";
+            string projectDir = System.IO.Directory.GetCurrentDirectory();
+            string licenseFile = System.IO.Path.Combine(projectDir, "lib", "Aspose.Total.NET.lic");
+            string tasksLicenseFile = System.IO.Path.Combine(projectDir, "lib", "Aspose.Tasks.NET.lic");
             int successCount = 0;
             int failCount = 0;
 
@@ -30,6 +32,7 @@ namespace DotNet_Example
                 "Aspose.Pub.License, Aspose.PUB",
                 "Aspose.Slides.License, Aspose.Slides",
                 "Aspose.Svg.License, Aspose.SVG",
+                "Aspose.Tasks.License, Aspose.Tasks",
                 "Aspose.TeX.License, Aspose.TeX"
             };
 
@@ -43,7 +46,8 @@ namespace DotNet_Example
                     {
                         object licenseObj = Activator.CreateInstance(type);
                         var method = type.GetMethod("SetLicense", new Type[] { typeof(string) });
-                        method.Invoke(licenseObj, new object[] { licenseFile });
+                        string licToUse = (productName == "Aspose.Tasks") ? tasksLicenseFile : licenseFile;
+                        method.Invoke(licenseObj, new object[] { licToUse });
                         Console.WriteLine($"[SUCCESS] {productName,-20} | License applied successfully.");
                         successCount++;
                     }

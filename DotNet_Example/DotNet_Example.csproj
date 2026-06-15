@@ -53,6 +53,9 @@
     <Reference Include="Aspose.SVG">
       <HintPath>lib\Aspose.SVG.dll</HintPath>
     </Reference>
+    <Reference Include="Aspose.Tasks">
+      <HintPath>lib\Aspose.Tasks.dll</HintPath>
+    </Reference>
     <Reference Include="Aspose.TeX">
       <HintPath>lib\Aspose.TeX.dll</HintPath>
     </Reference>

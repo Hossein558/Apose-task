@@ -11,7 +11,7 @@ To ensure accurate testing, two distinct automated test scripts (in C# and Java)
 In this package, 18 distinct products were dynamically loaded and tested with the license file.
 
 ### ✅ Successful Products (16 Items)
-The following libraries accepted the license without any errors and are fully functional:
+After replacing the previous version of `Aspose.Tasks` with version 23.9.0, a total of 16 libraries accepted the license without any errors and are fully functional:
 - `Aspose.3D`
 - `Aspose.Cells`
 - `Aspose.Diagram`
@@ -27,11 +27,11 @@ The following libraries accepted the license without any errors and are fully fu
 - `Aspose.PUB`
 - `Aspose.Slides`
 - `Aspose.SVG`
+- `Aspose.Tasks` (version 23.9.0 with its own license, due to invalid signature in version 25)
 - `Aspose.TeX`
 
-### ❌ Failed Products (2 Items)
-The following modules failed the validation process with an "Invalid Signature" error. This indicates that the security signature bypass (cracking) process for these specific DLLs is incomplete or flawed.
-- `Aspose.Tasks`
+### ❌ Failed Products (1 Item)
+The following module failed the validation process with an "Invalid Signature" error. This indicates that the security signature bypass (cracking) process for this specific DLL is incomplete or flawed.
 - `Aspose.Note`
 
 **Error Message Received:** 
