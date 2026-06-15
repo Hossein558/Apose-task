@@ -10,7 +10,7 @@ public class Main {
         // Try to apply a license if available (Optional)
         try {
             License license = new License();
-            license.setLicense("D:\\Programs\\Aspose.Total for Java v20.3\\Aspose.Tasks for Java 20.2 (25 Feb 2020)\\Aspose.Total.lic");
+            license.setLicense("Aspose.Total.Java.lic");
             System.out.println("License set successfully.");
         } catch (Exception ex) {
             System.out.println("Could not set license: " + ex.getMessage());
