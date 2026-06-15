@@ -1,0 +1,49 @@
+name: .NET and Java CI
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+
+jobs:
+  test-dotnet:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 8.0.x
+        
+    - name: Restore dependencies
+      run: dotnet restore
+      working-directory: ./DotNet_Example
+      
+    - name: Build
+      run: dotnet build --no-restore
+      working-directory: ./DotNet_Example
+      
+    - name: Run .NET License Tests
+      run: dotnet run --no-build
+      working-directory: ./DotNet_Example
+
+  test-java:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up JDK 17
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        
+    - name: Compile Java
+      run: javac -cp "lib/*" Main.java
+      working-directory: ./Java_Example
+      
+    - name: Run Java License Tests
+      run: java -cp ".:lib/*" Main
+      working-directory: ./Java_Example

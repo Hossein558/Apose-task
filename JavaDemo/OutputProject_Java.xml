@@ -4,8 +4,8 @@
   <SaveVersion>14</SaveVersion>
   <UID>1</UID>
   <Name>Project</Name>
-  <CreationDate>2026-06-16T00:32:03</CreationDate>
-  <LastSaved>2026-06-16T00:32:03</LastSaved>
+  <CreationDate>2026-06-16T00:35:57</CreationDate>
+  <LastSaved>2026-06-16T00:35:58</LastSaved>
   <ScheduleFromStart>1</ScheduleFromStart>
   <StartDate>2026-06-15T08:00:00</StartDate>
   <FinishDate>2026-07-13T17:00:00</FinishDate>
@@ -61,7 +61,7 @@
   <Calendars>
     <Calendar>
       <UID>1</UID>
-      <GUID>d0b78a5d-4307-4325-a4fd-6cc3a25176c4</GUID>
+      <GUID>45472551-f0c5-411b-92a8-026359435cc6</GUID>
       <Name>Standard</Name>
       <IsBaseCalendar>1</IsBaseCalendar>
       <BaseCalendarUID>-1</BaseCalendarUID>
@@ -150,13 +150,13 @@
   <Tasks>
     <Task>
       <UID>0</UID>
-      <GUID>52515fe0-0470-4fb8-9fee-68c12964ed4e</GUID>
+      <GUID>30de6d2d-fd28-4f9e-9c32-20c47d07f8b0</GUID>
       <ID>0</ID>
       <Active>1</Active>
       <Manual>0</Manual>
       <Type>1</Type>
       <IsNull>0</IsNull>
-      <CreateDate>2026-06-16T00:32:03</CreateDate>
+      <CreateDate>2026-06-16T00:35:57</CreateDate>
       <WBS>0</WBS>
       <OutlineNumber>0</OutlineNumber>
       <OutlineLevel>0</OutlineLevel>
@@ -233,13 +233,13 @@
     </Task>
     <Task>
       <UID>1</UID>
-      <GUID>2d3756ab-ce8d-4c1e-bc60-17f7f701741d</GUID>
+      <GUID>f31c7ce7-b59f-4ae0-ba88-93d02fac8e8e</GUID>
       <ID>1</ID>
       <Name>Task 1: Requirements Gathering</Name>
       <Active>1</Active>
       <Type>0</Type>
       <IsNull>0</IsNull>
-      <CreateDate>2026-06-16T00:32:03</CreateDate>
+      <CreateDate>2026-06-16T00:35:57</CreateDate>
       <WBS>1</WBS>
       <OutlineNumber>1</OutlineNumber>
       <OutlineLevel>1</OutlineLevel>
@@ -318,13 +318,13 @@
     </Task>
     <Task>
       <UID>2</UID>
-      <GUID>4f9bd255-0279-43b4-bca2-2ae5dd387123</GUID>
+      <GUID>bba0efdd-537e-45c2-b279-2fad8d83ccb2</GUID>
       <ID>2</ID>
       <Name>Task 2: Design &amp; Prototyping</Name>
       <Active>1</Active>
       <Type>0</Type>
       <IsNull>0</IsNull>
-      <CreateDate>2026-06-16T00:32:03</CreateDate>
+      <CreateDate>2026-06-16T00:35:58</CreateDate>
       <WBS>2</WBS>
       <OutlineNumber>2</OutlineNumber>
       <OutlineLevel>1</OutlineLevel>
@@ -409,13 +409,13 @@
     </Task>
     <Task>
       <UID>3</UID>
-      <GUID>17dfcd8a-048c-42b3-a6c3-5903c1628881</GUID>
+      <GUID>3a54f775-ac0f-482a-9a10-212c4cf658cd</GUID>
       <ID>3</ID>
       <Name>Task 3: Implementation</Name>
       <Active>1</Active>
       <Type>0</Type>
       <IsNull>0</IsNull>
-      <CreateDate>2026-06-16T00:32:03</CreateDate>
+      <CreateDate>2026-06-16T00:35:58</CreateDate>
       <WBS>3</WBS>
       <OutlineNumber>3</OutlineNumber>
       <OutlineLevel>1</OutlineLevel>
@@ -497,13 +497,13 @@
     </Task>
     <Task>
       <UID>4</UID>
-      <GUID>36889b0f-8989-494c-a4aa-e8ee5cb1b2b7</GUID>
+      <GUID>861ec6ce-f017-42e9-9ef5-253298fcee38</GUID>
       <ID>4</ID>
       <Name>Task 4: Testing &amp; QA</Name>
       <Active>1</Active>
       <Type>0</Type>
       <IsNull>0</IsNull>
-      <CreateDate>2026-06-16T00:32:03</CreateDate>
+      <CreateDate>2026-06-16T00:35:58</CreateDate>
       <WBS>4</WBS>
       <OutlineNumber>4</OutlineNumber>
       <OutlineLevel>1</OutlineLevel>
@@ -585,13 +585,13 @@
     </Task>
     <Task>
       <UID>5</UID>
-      <GUID>6619ebb5-835a-488c-a7ca-830c346c3534</GUID>
+      <GUID>516d1eb8-9c2a-45f5-8153-f952e0b1eaae</GUID>
       <ID>5</ID>
       <Name>Task 5: Deployment</Name>
       <Active>1</Active>
       <Type>0</Type>
       <IsNull>0</IsNull>
-      <CreateDate>2026-06-16T00:32:03</CreateDate>
+      <CreateDate>2026-06-16T00:35:58</CreateDate>
       <WBS>5</WBS>
       <OutlineNumber>5</OutlineNumber>
       <OutlineLevel>1</OutlineLevel>
@@ -716,7 +716,7 @@
       <BCWS>0.00</BCWS>
       <BCWP>0.00</BCWP>
       <BookingType>0</BookingType>
-      <CreationDate>2026-06-16T00:32:03</CreationDate>
+      <CreationDate>2026-06-16T00:35:58</CreationDate>
       <TimephasedData>
         <Type>2</Type>
         <UID>1</UID>
@@ -783,7 +783,7 @@
       <BCWS>0.00</BCWS>
       <BCWP>0.00</BCWP>
       <BookingType>0</BookingType>
-      <CreationDate>2026-06-16T00:32:03</CreationDate>
+      <CreationDate>2026-06-16T00:35:58</CreationDate>
       <TimephasedData>
         <Type>1</Type>
         <UID>2</UID>
@@ -889,7 +889,7 @@
       <BCWS>0.00</BCWS>
       <BCWP>0.00</BCWP>
       <BookingType>0</BookingType>
-      <CreationDate>2026-06-16T00:32:03</CreationDate>
+      <CreationDate>2026-06-16T00:35:58</CreationDate>
       <TimephasedData>
         <Type>1</Type>
         <UID>3</UID>
@@ -1043,7 +1043,7 @@
       <BCWS>0.00</BCWS>
       <BCWP>0.00</BCWP>
       <BookingType>0</BookingType>
-      <CreationDate>2026-06-16T00:32:03</CreationDate>
+      <CreationDate>2026-06-16T00:35:58</CreationDate>
       <TimephasedData>
         <Type>1</Type>
         <UID>4</UID>
@@ -1101,7 +1101,7 @@
       <BCWS>0.00</BCWS>
       <BCWP>0.00</BCWP>
       <BookingType>0</BookingType>
-      <CreationDate>2026-06-16T00:32:03</CreationDate>
+      <CreationDate>2026-06-16T00:35:58</CreationDate>
       <TimephasedData>
         <Type>1</Type>
         <UID>5</UID>
