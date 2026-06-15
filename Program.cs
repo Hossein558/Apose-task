@@ -42,22 +42,30 @@ namespace AsposeTasksDemo
             // Task 1: ۳ روز زمان می‌برد
             task1.Set(Tsk.Start, projectStartDate);
             task1.Set(Tsk.Duration, project.GetDuration(3, TimeUnitType.Day));
+            // فرض می‌کنیم تسک ۱ کامل انجام شده است (۲۴ ساعت کار واقعی)
+            task1.Set(Tsk.ActualWork, project.GetDuration(24, TimeUnitType.Hour));
 
             // Task 2: بعد از اتمام تسک اول شروع می‌شود و ۵ روز زمان می‌برد
             task2.Set(Tsk.Start, projectStartDate.AddDays(3));
             task2.Set(Tsk.Duration, project.GetDuration(5, TimeUnitType.Day));
+            // فرض می‌کنیم نیمی از تسک ۲ انجام شده است (۲۰ ساعت کار واقعی از ۴۰ ساعت کل)
+            task2.Set(Tsk.ActualWork, project.GetDuration(20, TimeUnitType.Hour));
 
             // Task 3: بعد از تسک دوم است و ۱۰ روز زمان می‌برد
             task3.Set(Tsk.Start, projectStartDate.AddDays(8));
             task3.Set(Tsk.Duration, project.GetDuration(10, TimeUnitType.Day));
+            // هنوز کاری روی این تسک انجام نشده است
+            task3.Set(Tsk.ActualWork, project.GetDuration(0, TimeUnitType.Hour));
 
             // Task 4: همزمان با روزهای پایانی تسک سوم شروع می‌شود (۲ روز)
             task4.Set(Tsk.Start, projectStartDate.AddDays(16));
             task4.Set(Tsk.Duration, project.GetDuration(2, TimeUnitType.Day));
+            task4.Set(Tsk.ActualWork, project.GetDuration(0, TimeUnitType.Hour));
 
             // Task 5: فاز نهایی (۱ روز)
             task5.Set(Tsk.Start, projectStartDate.AddDays(18));
             task5.Set(Tsk.Duration, project.GetDuration(1, TimeUnitType.Day));
+            task5.Set(Tsk.ActualWork, project.GetDuration(0, TimeUnitType.Hour));
 
             // اتصال تسک‌ها به یکدیگر (اختیاری: برای اینکه در گانت چارت پشت سر هم بیفتند)
             project.TaskLinks.Add(task1, task2, TaskLinkType.FinishToStart);
