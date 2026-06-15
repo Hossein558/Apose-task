@@ -30,16 +30,45 @@ namespace AsposeTasksDemo
             rootTask.Set(Tsk.Name, "My Main Project");
 
             // Add 5 tasks to the root task
-            for (int i = 1; i <= 5; i++)
-            {
-                Aspose.Tasks.Task task = rootTask.Children.Add($"Task {i}");
-                
-                // Set some properties for the task
-                task.Set(Tsk.Start, new DateTime(2025, 1, i, 8, 0, 0));
-                task.Set(Tsk.Duration, project.GetDuration(1, TimeUnitType.Day));
-                
-                Console.WriteLine($"Added {task.Get(Tsk.Name)}");
-            }
+            Aspose.Tasks.Task task1 = rootTask.Children.Add("Task 1: Requirements Gathering");
+            Aspose.Tasks.Task task2 = rootTask.Children.Add("Task 2: Design & Prototyping");
+            Aspose.Tasks.Task task3 = rootTask.Children.Add("Task 3: Implementation");
+            Aspose.Tasks.Task task4 = rootTask.Children.Add("Task 4: Testing & QA");
+            Aspose.Tasks.Task task5 = rootTask.Children.Add("Task 5: Deployment");
+
+            // --- مرحله دوم: زمان‌بندی (تعیین Start و Duration برای هر تسک) ---
+            DateTime projectStartDate = new DateTime(2026, 6, 15, 8, 0, 0);
+            
+            // Task 1: ۳ روز زمان می‌برد
+            task1.Set(Tsk.Start, projectStartDate);
+            task1.Set(Tsk.Duration, project.GetDuration(3, TimeUnitType.Day));
+
+            // Task 2: بعد از اتمام تسک اول شروع می‌شود و ۵ روز زمان می‌برد
+            task2.Set(Tsk.Start, projectStartDate.AddDays(3));
+            task2.Set(Tsk.Duration, project.GetDuration(5, TimeUnitType.Day));
+
+            // Task 3: بعد از تسک دوم است و ۱۰ روز زمان می‌برد
+            task3.Set(Tsk.Start, projectStartDate.AddDays(8));
+            task3.Set(Tsk.Duration, project.GetDuration(10, TimeUnitType.Day));
+
+            // Task 4: همزمان با روزهای پایانی تسک سوم شروع می‌شود (۲ روز)
+            task4.Set(Tsk.Start, projectStartDate.AddDays(16));
+            task4.Set(Tsk.Duration, project.GetDuration(2, TimeUnitType.Day));
+
+            // Task 5: فاز نهایی (۱ روز)
+            task5.Set(Tsk.Start, projectStartDate.AddDays(18));
+            task5.Set(Tsk.Duration, project.GetDuration(1, TimeUnitType.Day));
+
+            // اتصال تسک‌ها به یکدیگر (اختیاری: برای اینکه در گانت چارت پشت سر هم بیفتند)
+            project.TaskLinks.Add(task1, task2, TaskLinkType.FinishToStart);
+            project.TaskLinks.Add(task2, task3, TaskLinkType.FinishToStart);
+            project.TaskLinks.Add(task3, task4, TaskLinkType.FinishToStart);
+            project.TaskLinks.Add(task4, task5, TaskLinkType.FinishToStart);
+
+            // به روز رسانی اتوماتیک تاریخ‌ها بر اساس پیوندها
+            project.Recalculate();
+
+            Console.WriteLine("5 Tasks created and scheduled successfully.");
 
             // Save the project to an MPP format
             string outputPath = "OutputProject.mpp";
