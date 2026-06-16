@@ -72,6 +72,41 @@ namespace DotNet_Example
             {
                 Environment.Exit(1);
             }
+
+            Console.WriteLine("\nTesting Aspose.Cells: Create and Write to Spreadsheet");
+            Console.WriteLine("--------------------------------------");
+            TestAsposeCells();
+        }
+
+        static void TestAsposeCells()
+        {
+            try
+            {
+                // Instantiate a Workbook object that represents an Excel file.
+                Aspose.Cells.Workbook workbook = new Aspose.Cells.Workbook();
+
+                // Get the first worksheet.
+                Aspose.Cells.Worksheet worksheet = workbook.Worksheets[0];
+
+                // Put a string value into a cell (e.g., A1).
+                worksheet.Cells["A1"].PutValue("Hello World!");
+                worksheet.Cells["A2"].PutValue("This is created using Aspose.Cells in .NET");
+
+                // Add some numbers and formulas
+                worksheet.Cells["B1"].PutValue(100);
+                worksheet.Cells["B2"].PutValue(200);
+                worksheet.Cells["B3"].Formula = "=B1+B2";
+
+                // Save the Excel file.
+                string outputPath = "OutputCells.xlsx";
+                workbook.Save(outputPath, Aspose.Cells.SaveFormat.Xlsx);
+
+                Console.WriteLine($"[SUCCESS] Aspose.Cells spreadsheet created and saved to {outputPath}");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[FAILED] Aspose.Cells test failed: {ex.Message}");
+            }
         }
     }
 }
