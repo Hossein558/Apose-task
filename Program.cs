@@ -1,24 +1,10 @@
 using System;
-using System.Collections.Generic;
 using Aspose.Tasks;
-using Task = Aspose.Tasks.Task;
 
 namespace AsposeTasksDemo
 {
     class Program
     {
-        static void PrintTasks(Task task, string indent = "")
-        {
-            if (task.Get(Tsk.Name) != null)
-            {
-                Console.WriteLine($"{indent}- {task.Get(Tsk.Name)} : {task.Get(Tsk.PercentComplete)}%");
-            }
-            foreach (Task child in task.Children)
-            {
-                PrintTasks(child, indent + "  ");
-            }
-        }
-
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -52,25 +38,32 @@ namespace AsposeTasksDemo
                 Guid simorghId = Guid.Empty;
                 foreach (var info in list)
                 {
-                    if (info.Name != null && info.Name.Contains("سیمرغ"))
+                    if (info.Name != null && info.Name.Contains("سیمرغ") && !info.Name.Contains("سیمرغ 2"))
                     {
                         simorghId = info.Id;
-                        Console.WriteLine($"Found Simorgh Project: {info.Name} [{info.Id}]");
+                        Console.WriteLine($"Found Source Project: {info.Name} [{info.Id}]");
                         break;
                     }
                 }
                 
                 if (simorghId != Guid.Empty)
                 {
-                    Console.WriteLine("Downloading Simorgh project via Aspose.Tasks...");
+                    Console.WriteLine("Downloading Source project via Aspose.Tasks...");
                     Project project = manager.GetProject(simorghId);
-                    Console.WriteLine("Project downloaded. Listing tasks:");
                     
-                    PrintTasks(project.RootTask);
+                    Console.WriteLine("Creating exact copy as 'سیمرغ 2'...");
+                    
+                    var saveOptions = new ProjectServerSaveOptions
+                    {
+                        ProjectName = "سیمرغ 2"
+                    };
+                    
+                    manager.CreateNewProject(project, saveOptions);
+                    Console.WriteLine("Successfully created 'سیمرغ 2' on the server!");
                 }
                 else
                 {
-                    Console.WriteLine("Simorgh project not found.");
+                    Console.WriteLine("Source project 'سیمرغ' not found.");
                 }
             }
             catch (Exception ex)
