@@ -1,75 +1,52 @@
 using System;
-using Aspose.Tasks;
+using AsposeTasksDemo.Services;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 namespace AsposeTasksDemo
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-            Console.WriteLine("Starting Aspose.Tasks Demo...");
+            var builder = WebApplication.CreateBuilder(args);
 
+            // Set up Aspose.Tasks License
             try
             {
                 Aspose.Tasks.License license = new Aspose.Tasks.License();
                 license.SetLicense(@"lib\Aspose.Total.NET.lic");
-                Console.WriteLine("License set successfully.");
+                Console.WriteLine("Aspose.Tasks License set successfully.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Could not set license: " + ex.Message);
+                Console.WriteLine("Could not set Aspose.Tasks license: " + ex.Message);
             }
 
-            try
+            // Add services to the container.
+            builder.Services.AddControllers();
+            
+            // Register ProjectServerService as a Singleton (or Scoped if preferred)
+            builder.Services.AddSingleton<ProjectServerService>();
+
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
+
+            var app = builder.Build();
+
+            // Configure the HTTP request pipeline.
+            if (app.Environment.IsDevelopment())
             {
-                Console.WriteLine("Connecting to Project Server...");
-                
-                string url = "http://project.crouseco.com/project/PMO";
-                string username = "svc-sql";
-                string password = "$QL@dm!n1400";
-                
-                System.Net.NetworkCredential netCreds = new System.Net.NetworkCredential(username, password);
-                ProjectServerCredentials credentials = new ProjectServerCredentials(url, netCreds);
-                ProjectServerManager manager = new ProjectServerManager(credentials);
-                
-                Console.WriteLine("Fetching project list...");
-                var list = manager.GetProjectList();
-                Guid simorghId = Guid.Empty;
-                foreach (var info in list)
-                {
-                    if (info.Name != null && info.Name.Contains("سیمرغ") && !info.Name.Contains("سیمرغ 2"))
-                    {
-                        simorghId = info.Id;
-                        Console.WriteLine($"Found Source Project: {info.Name} [{info.Id}]");
-                        break;
-                    }
-                }
-                
-                if (simorghId != Guid.Empty)
-                {
-                    Console.WriteLine("Downloading Source project via Aspose.Tasks...");
-                    Project project = manager.GetProject(simorghId);
-                    
-                    Console.WriteLine("Creating exact copy as 'سیمرغ 2'...");
-                    
-                    var saveOptions = new ProjectServerSaveOptions
-                    {
-                        ProjectName = "سیمرغ 2"
-                    };
-                    
-                    manager.CreateNewProject(project, saveOptions);
-                    Console.WriteLine("Successfully created 'سیمرغ 2' on the server!");
-                }
-                else
-                {
-                    Console.WriteLine("Source project 'سیمرغ' not found.");
-                }
+                app.UseSwagger();
+                app.UseSwaggerUI();
             }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
+
+            app.UseAuthorization();
+            app.MapControllers();
+
+            app.Run();
         }
     }
 }
